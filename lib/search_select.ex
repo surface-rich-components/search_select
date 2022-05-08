@@ -15,6 +15,14 @@ defmodule SearchSelect do
   @doc "Triggered when the value is selected."
   prop select, :event, required: true
 
+  @doc "Class for arrow selected rows"
+  prop focus_class, :string
+
+  prop class, :css_class
+
+  @doc "Debounce for filter"
+  prop filter_debounce, :integer
+
   @doc """
   **Search Input.**
   The `search` slot is shown when user clicks on element or presses Enter.
@@ -33,11 +41,6 @@ defmodule SearchSelect do
   """
   slot dropdown, required: true
 
-  @doc "Class for arrow selected rows"
-  prop focus_class, :string
-
-  prop class, :css_class
-
   @spec render(any) :: Phoenix.LiveView.Rendered.t()
   def render(assigns) do
     ~F"""
@@ -49,6 +52,7 @@ defmodule SearchSelect do
       data-select-target={@select.target}
       data-select-change={@select.name}
       data-focus-class={@focus_class}
+      data-filter-debounce={@filter_debounce}
     >
       <div data-toggle-visibility aria-expanded="open" aria-haspopup="listbox" class={@class}>
         <#slot name="selected_value" />
