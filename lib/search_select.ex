@@ -55,13 +55,13 @@ defmodule SearchSelect do
       data-filter-debounce={@filter_debounce}
     >
       <div data-toggle-visibility aria-expanded="open" aria-haspopup="listbox" class={@class}>
-        <#slot name="selected_value" />
+        <#slot {@selected_value} />
         <div phx-update="ignore">
-          <#slot name="search" />
+          <#slot {@search} />
         </div>
       </div>
       <div data-list-container style="display: none;">
-        <#slot name="dropdown" />
+        <#slot {@dropdown} />
       </div>
       <div phx-update="ignore">
         <FieldContext name={@name}>
