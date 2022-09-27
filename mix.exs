@@ -22,7 +22,7 @@ defmodule SearchSelect.MixProject do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:surface, "~> 0.8.0"}
+      {:surface, "~> 0.9.0"}
     ]
   end
 end
